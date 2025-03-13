@@ -23,10 +23,15 @@ typedef struct {
     int **visited;      // Масив для відвіданих точок
 } Maze;
 
-
-void mx_printerr(const char *msg);
-int mx_strlen(const char *s);
 int mx_atoi(const char *str);
+bool mx_isdigit(int c);
+bool mx_isspace(char c);
+void mx_printchar(char c);
+void mx_printerr(const char *msg);
+void mx_printstr(char *str);
+int mx_strlen(const char *s);
+
+
 
 
 
