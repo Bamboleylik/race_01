@@ -1,11 +1,19 @@
 CC = clang
-CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
-SRC = src/*.c
-INC = -Iinc
-BIN = way_home
+CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic -I$(INC_DIR)
+SRC_DIR = src
+INC_DIR = inc
+SRC = $(wildcard $(SRC_DIR)/*.c)
 
-all:
-  $(CC) $(CFLAGS) $(SRC) $(INC) -o $(BIN)
+NAME = way_home
+
+all: $(NAME)
+
+$(NAME): $(SRC)
+	$(CC) $(CFLAGS) $^ -o $@
 
 clean:
-  rm -f $(BIN)
+	rm -f $(NAME)
+
+uninstall: clean
+
+reinstall: uninstall all
