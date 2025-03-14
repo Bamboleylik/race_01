@@ -1,20 +1,21 @@
-#include <header.h>
+#include "header.h"
 
-bool mx_is_valid_move(Maze *maze, int x, int y) {
+bool mx_is_valid(Maze *maze, int x, int y) {
     // Перевіряємо вихід за межі лабіринту
-    if (x < 0 || x >= maze->width || y < 0 || y >= maze->height) {
+    if (x < 0 || x >= maze->height || y < 0 || y >= maze->width) {
+        mx_printerr("points are out of map range\n");
         return false;
     }
 
-   
-    if (maze->maze[y][x] == '#') {
+    // Перевіряємо, чи клітинка не є стіною
+    if (maze->maze[x][y] == '#') {
         return false;
     }
 
-  
-    if (maze->visited[y][x] == 1) {
+    // Перевіряємо, чи клітинка ще не відвідана
+    if (maze->visited[x][y] != 0) {
         return false;
     }
 
-    return true; 
+    return true;
 }
