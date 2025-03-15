@@ -1,5 +1,9 @@
-#include "header.h"
+#include "../inc/header.h"
 
-void mx_printstr(char *str) {
-    write(1, str, mx_strlen(str));
+
+int mx_strlen(const char *s);
+
+void mx_printstr(const char *s) {
+   
+    write(1, s, mx_strlen(s)); 
 }

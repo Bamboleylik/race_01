@@ -1,16 +1,15 @@
-#include "header.h"
+#include "../inc/header.h"
 
-char *mx_strcpy(char *dst, const char *src) { 
-	char *destination = dst;
+char *mx_strcpy(char *dst, const char *src){ 
+   char *destination = dst;
+   while (*src)
+   {
+    *dst = *src;
 
-	while (*src) {
-    	*dst = *src;
+    dst++;
+    src++;
+   }
+   *dst='\0';
 
-    	dst++;
-    	src++;
-	}
-
-	*dst='\0';
-
-	return destination;
+   return destination;
 }

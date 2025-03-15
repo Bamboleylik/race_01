@@ -1,4 +1,6 @@
-#include "header.h"
+#include "../inc/header.h"
+
+
 
 int main(int argc, char *argv[]) {
     if (argc != 6) {
@@ -60,19 +62,7 @@ int main(int argc, char *argv[]) {
     mx_printchar('\n');
     mx_save_path(maze, "path.txt");
 
-    // Звільнення пам'яті
-    for (int i = 0; i < maze->height; i++) {
-        free(maze->maze[i]);
-    }
-
-    free(maze->maze);
-
-    for (int i = 0; i < maze->height; i++) {
-        free(maze->visited[i]);
-    }
-
-    free(maze->visited);
-    free(maze);
-
+    mx_free_maze(maze);
     return 0;
 }
+

@@ -1,4 +1,4 @@
-#include "header.h"
+#include "../inc/header.h"
 
 void mx_printerr(const char *s) {
     while (*s) {
