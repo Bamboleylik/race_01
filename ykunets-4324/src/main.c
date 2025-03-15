@@ -38,8 +38,8 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    maze->start = (Point){x1, y1};
-    maze->end = (Point){x2, y2};
+    maze->start = (Point){x1, y1};  
+    maze->end = (Point){y2, x2};
 
     mx_bfs_search(maze, maze->start);
 
