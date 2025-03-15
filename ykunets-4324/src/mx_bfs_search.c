@@ -1,37 +1,40 @@
-#include "../inc/header.h"
+#include "header.h"
 
 void mx_bfs_search(Maze *maze, Point start) {
     int dx[] = {0, 0, -1, 1};  
     int dy[] = {-1, 1, 0, 0};
-    if (maze == NULL || maze->height == 0 || maze->width == 0)
-    {
+
+    if (maze == NULL || maze->height == 0 || maze->width == 0) {
         mx_printerr("map does not exist\n");
         return;
     }
     
     maze->visited = malloc(maze->height * sizeof(int *));
+
     for (int i = 0; i < maze->height; i++) {
         maze->visited[i] = malloc(maze->width * sizeof(int));
+
         for (int j = 0; j < maze->width; j++) {
             maze->visited[i][j] = 0;  
         }
     }
 
-    if (maze->visited == NULL)
-    {
+    if (maze->visited == NULL) {
         mx_printerr("error\n");
         return;
     }
 
     Point *queue = malloc(maze->height * maze->width * sizeof(Point));
+
     if (queue == NULL) {
         mx_printerr("error\n");
         return;
     }
-    int front = 0, rear = 0;
+
+    int front = 0;
+    int rear = 0;
     queue[rear++] = start; 
     maze->visited[start.x][start.y] = 1;
-
     maze->farthest = start;
 
     while (front < rear) {

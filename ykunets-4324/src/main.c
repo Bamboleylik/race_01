@@ -1,6 +1,4 @@
-#include "../inc/header.h"
-
-
+#include "header.h"
 
 int main(int argc, char *argv[]) {
     if (argc != 6) {
@@ -60,9 +58,10 @@ int main(int argc, char *argv[]) {
     mx_printstr("exit=");
     mx_printint(exit_dist);
     mx_printchar('\n');
-    mx_save_path(maze, "path.txt");
 
+    mx_save_path(maze, "path.txt");
     mx_free_maze(maze);
+    
     return 0;
 }
 
